@@ -161,3 +161,5 @@ cython_debug/
 
 /apis/marvel_api.py
 
+/driver/chromedriver.exe
+/driver
