@@ -17,6 +17,7 @@ muertos = 0
 with open('data/titanic.csv') as archivo:
     datos = csv.reader(archivo, delimiter='\t')
     for linea in datos:
+        print(linea)
         titanic.append(linea)
 
 
