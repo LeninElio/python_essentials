@@ -2,20 +2,12 @@ _str = input('Ingresa la cadena: ')
 _type = input('Ingresa el tipo: ')
 
 vocales = 'aeiou'
-contarv = 0
-contaro = 0
 
-_str = _str.lower()
-_str = _str.replace(' ','')
+_str = _str.replace(' ','').lower()
 
-for v in _str:
-    if v in vocales and _type == 'vowels':
-        contarv += 1
-    elif v not in vocales: 
-        contaro += 1
-
+vocal = [v for v in _str if v in vocales]
 
 if _type == 'vowels':
-    print(contarv)
+    print(len(vocal))
 else:
-    print(contaro)
+    print(len(_str) - len(vocal))
