@@ -1,33 +1,27 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import ActionChains
+from connection import conection
 from selenium.webdriver.common.by import By
 
-# def conection():
+driver = conection()
 
-options = Options()
-options.add_argument("--disable-extensions")
-options.add_experimental_option("prefs", {"plugins.always_open_pdf_externally": True})
-# odriver = webdriver.Chrome(ptions=options)
-driver = webdriver.Chrome(executable_path=r'C:/webdrivers/chromedriver.exe')
+def ingreso_datos(ap = '', am = '', pn = '', sn = ''):
+    driver.find_element(By.NAME, "txtApePaterno").send_keys(ap)
+    driver.find_element(By.NAME, "txtApeMaterno").send_keys(am)
+    driver.find_element(By.NAME, "txtPriNombre").send_keys(pn)
+    driver.find_element(By.NAME, "txtSegNombre").send_keys(sn)
+    driver.find_element(By.NAME, "btnConsultar").click()
 
-url = "http://sga.unasam.edu.pe/login"
-driver.get(url)
+ingreso_datos('moreno', 'vega')
 
-# driver.find_element(By.XPATH, "//select[@id='cboTipoBusqueda']/option[2]").click()
-# driver.find_element(By.NAME, "txtApePaterno").send_keys("apellido_paterno")
-# driver.find_element(By.NAME, "txtApeMaterno").send_keys("apellido_materno")
-elemento = driver.find_element(By.NAME, "usuario")
-# driver.find_element(By.NAME, "txtPriNombre").send_keys("primer_nombre")
-# driver.find_element(By.NAME, "txtSegNombre").send_keys("segundo_nombre")
-action = ActionChains(driver)
-# elemento = driver.find_element(By.XPATH, "//div[@class='TituloEncabezado2']")
-action.context_click(elemento).perform()
-action.key_down(2)
-# ActionChains(driver).move_to_element(elemento).click(elemento).perform()
+# nombres = []
+# for i in range(1,10):
+#     col = driver.find_elements(by = By.XPATH, value = f"//tr[@class='c_texto_02']/td[{i}]")
+#     nombres.append(col)
+# nombres = driver.find_elements(by = By.XPATH, value = f"//tr[@class='c_texto_02']/td[2]")
+# nombres = [i.text for i in nombres]
 
-# driver.find_element(By.XPATH, "//button").click()
-# return driver, url
-# return driver
+# print(nombres)
 
-# conection()
+valor = "/html/body/form/div[3]/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/table/tbody/tr/td/div[1]/table/tbody/tr[33]/td/table/tbody/tr/td[12]/a"
+
+ultimo = driver.find_elements(By.XPATH, '')
+ultimo.click()
